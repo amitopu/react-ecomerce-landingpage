@@ -1,0 +1,62 @@
+[
+    {
+        "id": "623f46400f8cf3ddd0ea06f7",
+        "name": "Drone-1",
+        "image": "../../images/drone-1.png",
+        "price": "200"
+    },
+    {
+        "id": "623f4640dc488633da52a072",
+        "name": "Drone-2",
+        "image": "../../images/drone-2.png",
+        "price": "340"
+    },
+    {
+        "id": "623f46404ebb8da5c6e3f339",
+        "name": "Drone-3",
+        "image": "../../images/drone-3.png",
+        "price": "520"
+    },
+    {
+        "id": "623f46402730f2b5fac94254",
+        "name": "Drone-4",
+        "image": "../../images/drone-4.png",
+        "price": "<ReferenceError: price is not defined>"
+    },
+    {
+        "id": "623f46407606a7ad4f811db4",
+        "name": "Drone-5",
+        "image": "../../images/drone-5.png",
+        "price": "<ReferenceError: price is not defined>"
+    },
+    {
+        "id": "623f46401425f2e9854bab0b",
+        "name": "Drone-6",
+        "image": "../../images/drone-6.png",
+        "price": "400"
+    },
+    {
+        "id": "623f46407aedabf32fc83c41",
+        "name": "Drone-7",
+        "image": "../../images/drone-7.png",
+        "price": "380"
+    },
+    {
+        "id": "623f4640e6503018c579f5dd",
+        "name": "Drone-8",
+        "image": "../../images/drone-8.png",
+        "price": "299"
+    },
+    {
+        "id": "623f46402647982acfa9fe0d",
+        "name": "Drone-9",
+        "image": "../../images/drone-9.png",
+        "price": "365"
+    },
+    {
+        "id": "623f4640deb34fee38046289",
+        "name": "Drone-10",
+        "image": "../../images/drone-10.png",
+        "price": "344"
+    }
+]
