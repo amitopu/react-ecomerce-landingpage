@@ -31,3 +31,7 @@
 .add-to-cart-btn:hover {
     font-size: 20px;
 }
+
+.cart-icon {
+    margin-left: 5px;
+}
