@@ -6,6 +6,7 @@ import "./Shop.css";
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    // const [alert, setAlert] = useState(0);
 
     useEffect(() => {
         fetch("products.json")
@@ -15,8 +16,14 @@ const Shop = () => {
 
     // function to add product to cart
     const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
-        setCart(newCart);
+        if (cart.length < 4) {
+            const newCart = [...cart, product];
+            setCart(newCart);
+        }
+        // for optional
+        // else {
+        //     setAlert(1);
+        // }
     };
 
     // function to clear the cart
@@ -30,16 +37,26 @@ const Shop = () => {
         if (cart.length) {
             newCart.push(cart[Math.floor(Math.random() * cart.length)]);
         }
-        console.log(newCart);
+        // console.log(newCart);
         setCart(newCart);
     };
+
+    // function to delete a product from the cart
+    // const deleteItem = (index) => {
+    //     const newCart = [...cart];
+    //     const tempCart = newCart.filter((prod) => {
+    //         return prod.id !== product.id;
+    //     });
+    //     setCart(tempCart);
+    //     // console.log(cart);
+    // };
 
     return (
         <div className="main-section">
             <div className="products-container">
                 {products.map((product) => (
                     <Product
-                        key={product.id}
+                        key={Math.random() * 100000000 + product.id}
                         product={product}
                         cartClickHandler={handleAddToCart}
                     ></Product>
@@ -50,6 +67,7 @@ const Shop = () => {
                     cart={cart}
                     clearCart={clearCart}
                     randomCart={randomCart}
+                    // deleteItem={deleteItem}
                 ></Cart>
             </div>
         </div>
