@@ -13,6 +13,7 @@ const Cart = (props) => {
             <p>Added items: {props.cart.length} </p>
             <p>Total Cost: ${total}</p>
             <button onClick={props.clearCart}>Choose Again</button>
+            <button onClick={props.randomCart}>Choose One</button>
         </div>
     );
 };

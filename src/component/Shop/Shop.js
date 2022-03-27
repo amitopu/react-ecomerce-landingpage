@@ -13,14 +13,27 @@ const Shop = () => {
             .then((data) => setProducts(data));
     }, []);
 
+    // function to add product to cart
     const handleAddToCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
     };
 
+    // function to clear the cart
     const clearCart = () => {
         setCart([]);
     };
+
+    // function to choose a random product form the cart and update the cart with it
+    const randomCart = () => {
+        const newCart = [];
+        if (cart.length) {
+            newCart.push(cart[Math.floor(Math.random() * cart.length)]);
+        }
+        console.log(newCart);
+        setCart(newCart);
+    };
+
     return (
         <div className="main-section">
             <div className="products-container">
@@ -33,7 +46,11 @@ const Shop = () => {
                 ))}
             </div>
             <div className="cart-container">
-                <Cart cart={cart} clearCart={clearCart}></Cart>
+                <Cart
+                    cart={cart}
+                    clearCart={clearCart}
+                    randomCart={randomCart}
+                ></Cart>
             </div>
         </div>
     );
