@@ -1,8 +1,25 @@
 import React from "react";
 import "./Product.css";
 
-const Product = () => {
-    return <div></div>;
+const Product = (props) => {
+    const { id, name, price, seller, image } = props.product;
+
+    return (
+        <div className="product-card">
+            <div className="img-container">
+                <img src={image} alt="drone with white background" />
+            </div>
+            <h3>{name}</h3>
+            <p className="price">Price: {price}$</p>
+            <p>Seller: {seller}</p>
+            <button
+                onClick={() => props.cartClickHandler(props.product)}
+                className="add-to-cart-btn"
+            >
+                add to cart
+            </button>
+        </div>
+    );
 };
 
 export default Product;
