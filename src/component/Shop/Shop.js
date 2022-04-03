@@ -17,7 +17,7 @@ const Shop = () => {
 
     // function to add product to cart
     const handleAddToCart = (product) => {
-        const newCart = cart;
+        const newCart = { ...cart };
         let idCartProduct;
         // parseInt(cartKeys[cartKeys.length - 1]) + 1;
         if (cartKeys.length) {
@@ -58,6 +58,13 @@ const Shop = () => {
         // console.log(newCart);
     };
 
+    const deleteItem = (id) => {
+        const newCart = { ...cart };
+        delete newCart[id];
+        const newCartKeys = cartKeys.filter((key) => key !== id);
+        setCart(newCart);
+        setCartKeys(newCartKeys);
+    };
     // function to delete a product from the cart
     // const deleteItem = (index) => {
     //     const newCart = [...cart];
@@ -85,7 +92,7 @@ const Shop = () => {
                     cartKeys={cartKeys}
                     clearCart={clearCart}
                     randomCart={randomCart}
-                    // deleteItem={deleteItem}
+                    deleteItem={deleteItem}
                 ></Cart>
             </div>
         </div>

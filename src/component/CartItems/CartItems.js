@@ -14,9 +14,7 @@ const CartItems = (props) => {
 
             <span className="cart-prod-name">{name}</span>
             <span className="cart-prod-price">${price}</span>
-            <button
-            // onClick={() => props.deleteItem(props.product)}
-            >
+            <button onClick={() => props.deleteItem(props.id)}>
                 <FontAwesomeIcon icon={faTrashCan} />
             </button>
         </div>
