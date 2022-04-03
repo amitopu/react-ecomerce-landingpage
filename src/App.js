@@ -10,8 +10,6 @@ function App() {
         <div className="App">
             <Header></Header>
             <Shop></Shop>
-            <Question1></Question1>
-            <Question2></Question2>
         </div>
     );
 }

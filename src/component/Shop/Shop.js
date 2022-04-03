@@ -5,7 +5,8 @@ import "./Shop.css";
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState({});
+    const [cartKeys, setCartKeys] = useState([]);
     // const [alert, setAlert] = useState(0);
 
     useEffect(() => {
@@ -16,10 +17,20 @@ const Shop = () => {
 
     // function to add product to cart
     const handleAddToCart = (product) => {
-        if (cart.length < 4) {
-            const newCart = [...cart, product];
-            setCart(newCart);
+        const newCart = cart;
+        let idCartProduct;
+        // parseInt(cartKeys[cartKeys.length - 1]) + 1;
+        if (cartKeys.length) {
+            idCartProduct = parseInt(cartKeys[cartKeys.length - 1]) + 1;
+        } else {
+            idCartProduct = 1;
         }
+        const newCartKeys = [...cartKeys, idCartProduct];
+        if (product) {
+            newCart[idCartProduct] = product;
+        }
+        setCart(newCart);
+        setCartKeys(newCartKeys);
         // for optional
         // else {
         //     setAlert(1);
@@ -28,17 +39,23 @@ const Shop = () => {
 
     // function to clear the cart
     const clearCart = () => {
-        setCart([]);
+        setCart({});
+        setCartKeys([]);
     };
 
     // function to choose a random product form the cart and update the cart with it
     const randomCart = () => {
-        const newCart = [];
-        if (cart.length) {
-            newCart.push(cart[Math.floor(Math.random() * cart.length)]);
+        let product;
+        let newCart = {};
+        let newCartKey = 1;
+        if (cartKeys.length) {
+            product =
+                cart[cartKeys[Math.floor(Math.random() * cartKeys.length)]];
+            newCart[newCartKey] = product;
+            setCart(newCart);
+            setCartKeys([newCartKey]);
         }
         // console.log(newCart);
-        setCart(newCart);
     };
 
     // function to delete a product from the cart
@@ -65,6 +82,7 @@ const Shop = () => {
             <div className="cart-container">
                 <Cart
                     cart={cart}
+                    cartKeys={cartKeys}
                     clearCart={clearCart}
                     randomCart={randomCart}
                     // deleteItem={deleteItem}

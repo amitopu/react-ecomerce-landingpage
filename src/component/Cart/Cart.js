@@ -4,17 +4,21 @@ import "./Cart.css";
 
 const Cart = (props) => {
     let total = 0;
-    for (const product of props.cart) {
-        total += product.price;
+    const cart = props.cart;
+    const cartKeys = props.cartKeys;
+    for (const id of props.cartKeys) {
+        total += cart[id].price;
     }
+    // console.log(props);
     return (
         <div>
             <h2>Cart Summary</h2>
-            <p>Added items: {props.cart.length} </p>
-            {props.cart.map((product) => (
+            <p>Added items: {cartKeys.length} </p>
+            {props.cartKeys.map((id) => (
                 <CartItems
-                    key={Math.random() * 10000000 + product.id}
-                    product={product}
+                    key={id}
+                    product={cart[id]}
+                    id={id}
                     // deleteItem={props.deleteItem}
                 ></CartItems>
             ))}
